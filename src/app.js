@@ -1,19 +1,17 @@
-const express = require("express");
+const exp = require("express");
 
-const app = express();
+const app = exp();
 
-app.listen(8000, () =>
-  console.log("Server is running successfully on port 8000...")
-);
+const port = 3000;
 
-app.use("/posts", (req, res) => {
-  res.send("Response for /posts...");
+app.use((req, res) => {
+  res.send("Hello from the server " + port);
 });
 
-app.use("/profile", (req, res) => {
-  res.send("Response for /profile...");
+app.use("/test", (req, res) => {
+  res.send("Hello from the server " + port);
 });
 
-app.use("/", (req, res) => {
-  res.send("Hello from the server root");
+app.listen(port, () => {
+  console.log("Server running successfully");
 });
